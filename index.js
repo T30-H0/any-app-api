@@ -1,23 +1,26 @@
+require("dotenv").config();
 const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
-const port = 3000;
+const productRoute = require("./routes/productRoute");
+const errorMiddleware = require("./middleware/errorMiddleware");
 
-app.get("/any-app", (req, res) => {
-  res.send("This is get method!");
-});
+const MONGO_URL = process.env.MONGO_URL;
+const PORT = process.env.PORT;
 
-app.post("/any-app", (req, res) => {
-  res.send("This is post method!");
-});
+app.use(express.json());
+app.use("/api/any-app", productRoute);
 
-app.put("/any-app", (req, res) => {
-  res.send("This is put method!");
-});
+app.use(errorMiddleware);
 
-app.delete("/any-app", (req, res) => {
-  res.send("This is delete method!");
-});
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
-});
+mongoose
+  .connect(MONGO_URL)
+  .then(() => {
+    console.log("Connected to Mongoose DB");
+    app.listen(PORT, () => {
+      console.log(`AnyApp listening on port ${PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.log("error", error);
+  });
