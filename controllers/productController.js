@@ -2,7 +2,7 @@ const Product = require("../models/productModel");
 const asyncHandler = require("express-async-handler");
 
 //get all product
-const getProduct = asyncHandler(async (req, res) => {
+const getProducts = asyncHandler(async (req, res) => {
   try {
     const products = await Product.find({});
     res.status(200).json(products);
@@ -13,7 +13,7 @@ const getProduct = asyncHandler(async (req, res) => {
 });
 
 //get product by id
-const getProducts = asyncHandler(async (req, res) => {
+const getProduct = asyncHandler(async (req, res) => {
   try {
     const { id } = req.params;
     const product = await Product.findById(id);
@@ -76,5 +76,5 @@ module.exports = {
   getProducts,
   createProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
 };

@@ -5,14 +5,14 @@ const {
   getProducts,
   createProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
 } = require("../controllers/productController");
 
 // get all product
-router.get("/", getProduct);
+router.get("/", getProducts);
 
 //get product by id
-router.get("/:id", getProducts);
+router.get("/:id", getProduct);
 
 //create new product
 router.post("/", createProduct);

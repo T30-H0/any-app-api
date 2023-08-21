@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const productRoute = require("./routes/productRoute");
+const universalLinkRoute = require("./routes/universalLinkRoute");
 const errorMiddleware = require("./middleware/errorMiddleware");
 
 const MONGO_URL = process.env.MONGO_URL;
@@ -10,6 +11,10 @@ const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use("/api/any-app", productRoute);
+app.use(
+  "/api/any-app/.well-known/apple-app-site-association/",
+  universalLinkRoute
+);
 
 app.use(errorMiddleware);
 
