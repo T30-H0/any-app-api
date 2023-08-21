@@ -7,11 +7,11 @@ const getAASA = asyncHandler(async (_req, res) => {
         apps: [],
         details: [
           {
-            appID: "538683TPF.com.anyapp.develop",
+            appID: "5TY9P9S7PP.com.anyapp.develop",
             paths: ["NOT /_/*", "/*"],
           },
           {
-            appID: "538683TPF.com.anyapp.develop",
+            appID: "5TY9P9S7PP.com.anyapp.develop",
             paths: ["NOT /_/*", "/*"],
           },
         ],
