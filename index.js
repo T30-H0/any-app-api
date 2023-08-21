@@ -11,7 +11,7 @@ const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use("/api/any-app", productRoute);
-app.use("/.well-known/apple-app-site-association/", universalLinkRoute);
+app.use("/", universalLinkRoute);
 
 app.use(errorMiddleware);
 
