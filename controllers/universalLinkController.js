@@ -10,11 +10,10 @@ const getAASA = asyncHandler(async (_req, res) => {
             appID: "5TY9P9S7PP.com.anyapp.develop",
             paths: ["NOT /_/*", "/*"],
           },
-          {
-            appID: "5TY9P9S7PP.com.anyapp.develop",
-            paths: ["NOT /_/*", "/*"],
-          },
         ],
+      },
+      webcredentials: {
+        apps: ["5TY9P9S7PP.com.anyapp.develop"],
       },
     };
 
