@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const universalLinkSchema = mongoose.Schema({
   appID: {
@@ -12,4 +12,4 @@ const universalLinkSchema = mongoose.Schema({
 });
 
 const UniversalLink = mongoose.model("UniversalLink", universalLinkSchema);
-module.exports = UniversalLink;
+export { UniversalLink };

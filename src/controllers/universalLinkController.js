@@ -1,4 +1,4 @@
-const asyncHandler = require("express-async-handler");
+import asyncHandler from "express-async-handler";
 
 const getAASA = asyncHandler(async (_req, res) => {
   try {
@@ -46,8 +46,4 @@ const getApplinks = asyncHandler(async (_req, res) => {
     throw new Error(error.message);
   }
 });
-
-module.exports = {
-  getAASA,
-  getApplinks,
-};
+export { getAASA, getApplinks };
